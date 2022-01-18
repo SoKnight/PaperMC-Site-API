@@ -44,6 +44,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>8</java.version>
 
+        <!-- Manifest entries -->
+        <manifest.contact>https://t.me/soknight/</manifest.contact>
+        <manifest.developer>SoKnight</manifest.developer>
+        <manifest.github>https://github.com/SoKnight</manifest.github>
+
         <!-- Dependencies versions -->
         <retrofit.version>2.9.0</retrofit.version>
         <jackson.version>2.13.1</jackson.version>
@@ -52,6 +57,7 @@
 
         <!-- Maven plugins -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
         <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
         <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
         <maven.javadoc.plugin.version>3.3.1</maven.javadoc.plugin.version>
@@ -134,6 +140,26 @@
                 </configuration>
             </plugin>
 
+            <!-- Maven jar plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven.jar.plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifest>
+                            <addDefaultEntries>false</addDefaultEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Contact>${manifest.contact}</Contact>
+                            <Developer>${manifest.developer}</Developer>
+                            <GitHub>${manifest.github}</GitHub>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
             <!-- Nexus staging plugin -->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
@@ -207,7 +233,7 @@
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <shadedArtifactAttached>true</shadedArtifactAttached>
                     <shadedClassifierName>full</shadedClassifierName>
-                    <finalName>papermc-site-api-${project.version}-full</finalName>
+                    <finalName>papermc-site-api-${project.version}</finalName>
                     <filters>
                         <filter>
                             <artifact>*:*</artifact>
@@ -242,6 +268,18 @@
                         <relocation>
                             <pattern>com.fasterxml.jackson</pattern>
                             <shadedPattern>me.soknight.papermc.site.api.libs.jackson</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>okhttp3</pattern>
+                            <shadedPattern>me.soknight.papermc.site.api.libs.okhttp3</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>okio</pattern>
+                            <shadedPattern>me.soknight.papermc.site.api.libs.okio</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>retrofit2</pattern>
+                            <shadedPattern>me.soknight.papermc.site.api.libs.retrofit2</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

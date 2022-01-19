@@ -1,5 +1,5 @@
 [latestReleaseImg]: https://img.shields.io/maven-central/v/me.soknight/papermc-site-api?color=%23BA4CFF&label=Latest%20release&style=for-the-badge
-[latestRelease]: https://search.maven.org/search?q=g:me.soknight%20a:papermc-site-api
+[latestRelease]: https://search.maven.org/artifact/me.soknight/papermc-site-api
 
 [githubIssuesImg]: https://img.shields.io/github/issues-raw/SoKnight/PaperMC-Site-API?color=%23BA4CFF&logo=github&style=for-the-badge
 [githubIssues]: https://github.com/SoKnight/PaperMC-Site-API/issues

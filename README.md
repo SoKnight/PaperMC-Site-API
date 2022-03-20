@@ -10,8 +10,7 @@
 # PaperMC Site API
 The unofficial SDK for the PaperMC Site API written on Java.
 
-[![latestReleaseImg]][latestRelease]<br>
-[![githubIssuesImg]][githubIssues] [![licenseImg]][license]
+[![latestReleaseImg]][latestRelease] [![githubIssuesImg]][githubIssues] [![licenseImg]][license]
 
 ## Dependency
 This library is published to the central Maven repository.<br>
